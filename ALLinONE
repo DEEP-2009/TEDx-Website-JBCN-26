@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDxJBCN International Oshiwara</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #000; color: #fff; line-height: 1.6; }
+        .red-text { color: #dc2626; }
+        .navbar { position: fixed; top: 0; width: 100%; background: #000; box-shadow: 0 2px 10px rgba(220,38,38,0.3); z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .nav-logo { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text h1 { font-size: 1.75rem; font-weight: bold; letter-spacing: -0.5px; line-height: 1; }
+        .logo-text h1 .tedx-x { color: #dc2626; }
+        .logo-text p { font-size: 0.95rem; color: #d1d5db; font-weight: 500; margin-top: 0.25rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.3s; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: #dc2626; }
+        .page { display: none; min-height: 100vh; }
+        .page.active { display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .about-hero, .speaker-hero { height: 50vh; min-height: 400px; margin-top: 80px; }
+        .hero-background { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(127,29,29,0.2) 0%, #000 100%); }
+        .hero-background::before, .hero-background::after { content: ''; position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.1; }
+        .hero-background::before { top: 25%; left: 25%; width: 400px; height: 400px; background: #dc2626; }
+        .hero-background::after { bottom: 25%; right: 25%; width: 400px; height: 400px; background: #991b1b; }
+        .hero-content { position: relative; z-index: 10; text-align: center; padding: 1rem; max-width: 1000px; }
+        .hero-title { font-size: 6rem; font-weight: bold; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 3rem; font-weight: bold; margin-bottom: 1rem; }
+        .hero-tagline { font-size: 1.5rem; color: #d1d5db; margin-bottom: 2rem; }
+        .about-hero h1, .speaker-hero h1 { font-size: 4rem; font-weight: bold; margin-bottom: 1rem; }
+        .about-hero p, .speaker-hero p { font-size: 1.5rem; color: #d1d5db; }
+        .countdown-container { background: rgba(17,24,39,0.5); backdrop-filter: blur(10px); border-radius: 12px; padding: 2rem; border: 1px solid rgba(220,38,38,0.3); margin-bottom: 2rem; }
+        .countdown-header { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
+        .countdown-header h3 { font-size: 1.25rem; font-weight: 600; }
+        .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+        .countdown-item { background: #000; border: 1px solid #374151; padding: 1rem; border-radius: 8px; }
+        .countdown-number { font-size: 2.5rem; font-weight: bold; color: #dc2626; }
+        .countdown-label { font-size: 0.875rem; color: #9ca3af; }
+        .event-date { margin-top: 1rem; color: #9ca3af; font-size: 0.875rem; }
+        .btn { display: inline-block; padding: 0.9rem 1.8rem; font-size: 1rem; font-weight: 700; color: #fff; border: 3px solid #dc2626; cursor: pointer; background: transparent; border-radius: 30px; transition: all 0.3s; }
+        .btn.large { padding: 1.1rem 2.4rem; font-size: 1.1rem; }
+        .btn:hover { background: #dc2626; transform: scale(1.05); }
+        .about-main, .speakers-section, .chief-guest-section { padding: 4rem 0; }
+        .content-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center; }
+        .content-text h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
+        .content-text p { color: #e5e7eb; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .image-placeholder { width: 100%; height: 300px; background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border: 2px solid rgba(220,38,38,0.3); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 4rem; }
+        .vision-section { background: #111827; border: 1px solid rgba(220,38,38,0.3); border-radius: 12px; padding: 2.5rem; margin-bottom: 4rem; }
+        .vision-section h2 { font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
+        .vision-section p { color: #e5e7eb; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .event-details { margin-bottom: 4rem; }
+        .event-details h2 { font-size: 2rem; font-weight: bold; text-align: center; margin-bottom: 2rem; }
+        .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .detail-card { background: #111827; border: 1px solid rgba(220,38,38,0.3); border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s; }
+        .detail-card:hover { border-color: #dc2626; transform: translateY(-5px); }
+        .detail-icon { width: 64px; height: 64px; background: #dc2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+        .detail-card h3 { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.75rem; }
+        .detail-card p { color: #d1d5db; }
+        .contact-section { background: #111827; border: 1px solid rgba(220,38,38,0.3); border-radius: 12px; padding: 2.5rem; }
+        .contact-section h2 { font-size: 2rem; font-weight: bold; text-align: center; margin-bottom: 2rem; }
+        .contact-form { max-width: 800px; margin: 0 auto; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; color: #9ca3af; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; background: #000; border: 1px solid #374151; border-radius: 8px; padding: 0.875rem 1rem; color: #fff; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #dc2626; }
+        .form-group textarea { height: 150px; resize: vertical; }
+        .speakers-section h2, .chief-guest-section h2 { font-size: 2.5rem; font-weight: bold; text-align: center; margin-bottom: 3rem; }
+        .chief-guest-card { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); border: 2px solid rgba(220,38,38,0.3); border-radius: 16px; padding: 3rem; display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: center; }
+        .photo-placeholder { width: 100%; height: 300px; background: linear-gradient(135deg, #1f2937 0%, #374151 100%); border: 2px solid rgba(220,38,38,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+        .guest-info h3 { font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .designation { color: #dc2626; font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .bio { color: #d1d5db; line-height: 1.8; }
+        .speaker-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .speaker-card { background: #111827; border: 1px solid rgba(220,38,38,0.3); border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+        .speaker-card:hover { border-color: #dc2626; transform: translateY(-10px); }
+        .speaker-card .photo-placeholder { height: 250px; border-radius: 0; font-size: 4rem; }
+        .speaker-info { padding: 1.5rem; }
+        .speaker-info h3 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .field { color: #dc2626; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; margin-bottom: 1.25rem; }
+        .topic-section { margin-bottom: 1.25rem; padding: 1rem; background: rgba(220,38,38,0.05); border-left: 3px solid #dc2626; }
+        .topic-label { font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+        .topic { color: #fff; font-weight: 600; font-size: 1rem; }
+        .description { color: #d1d5db; font-size: 0.875rem; line-height: 1.6; }
+        .footer { background: #111827; border-top: 1px solid #1f2937; padding: 2rem 0; margin-top: 4rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .footer-info h3 { font-size: 1.125rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .footer-info p { color: #9ca3af; font-size: 0.875rem; }
+        .social-links { display: flex; gap: 1.5rem; }
+        .social-icon { color: #9ca3af; transition: color 0.3s; }
+        .social-icon:hover { color: #dc2626; }
+        .footer-bottom { padding-top: 1.5rem; border-top: 1px solid #1f2937; text-align: center; }
+        .footer-bottom p { color: #6b7280; font-size: 0.875rem; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 1.5rem; }
+            .about-hero h1, .speaker-hero h1 { font-size: 2.5rem; }
+            .content-section, .chief-guest-card { grid-template-columns: 1fr; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="showPage('home')">
+                <div class="logo-text">
+                    <h1>TED<span class="tedx-x">x</span> JBCN Oshiwara</h1>
+                    <p>Ideas Worth Spreading</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#home" onclick="showPage('home'); return false;" class="active">Home</a>
+                <a href="#about" onclick="showPage('about'); return false;">About Us</a>
+                <a href="#speakers" onclick="showPage('speakers'); return false;">Speakers</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">TED<span class="red-text">x</span></h1>
+                <h2 class="hero-subtitle">JBCN International School Oshiwara</h2>
+                <p class="hero-tagline">Ideas Worth Spreading</p>
+                <div class="countdown-container">
+                    <div class="countdown-header"><h3>Event Countdown</h3></div>
+                    <div class="countdown-grid">
+                        <div class="countdown-item"><div class="countdown-number" id="days">63</div><div class="countdown-label">Days</div></div>
+                        <div class="countdown-item"><div class="countdown-number" id="hours">15</div><div class="countdown-label">Hours</div></div>
+                        <div class="countdown-item"><div class="countdown-number" id="minutes">42</div><div class="countdown-label">Minutes</div></div>
+                        <div class="countdown-item"><div class="countdown-number" id="seconds">18</div><div class="countdown-label">Seconds</div></div>
+                    </div>
+                    <div class="event-date">January 23, 2026 | 9:00 AM</div>
+                </div>
+                <button class="btn large" onclick="showPage('about')">Learn More</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="about" class="page">
+        <section class="about-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content"><h1>About <span class="red-text">Us</span></h1><p>Ideas Worth Spreading</p></div>
+        </section>
+        <section class="about-main">
+            <div class="container">
+                <div class="content-section">
+                    <div class="content-text">
+                        <h2>What is TED<span class="red-text">x</span>?</h2>
+                        <p>TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. Our event at JBCN International Oshiwara celebrates ideas, innovation, and impact.</p>
+                        <p>In the spirit of ideas worth spreading, TED has created a program called TEDx. At our TEDxJBCN International Oshiwara event, TED Talks video and live speakers will combine to spark deep discussion and connection.</p>
+                    </div>
+                    <div class="content-image"><div class="image-placeholder"><span>📷</span><p>TEDx Image</p></div></div>
+                </div>
+                <div class="vision-section">
+                    <h2>Our <span class="red-text">Vision</span></h2>
+                    <p>TEDxJBCN International Oshiwara is an independently organized TED event that brings together thought leaders, innovators, and change-makers to share ideas worth spreading.</p>
+                    <p>We aim to create a platform where students, educators, and community members can engage with transformative ideas that inspire action and positive change.</p>
+                </div>
+                <div class="event-details">
+                    <h2>Event <span class="red-text">Details</span></h2>
+                    <div class="details-grid">
+                        <div class="detail-card"><div class="detail-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Date</h3><p>January 23, 2026</p></div>
+                        <div class="detail-card"><div class="detail-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Time</h3><p>9:00 AM - 5:00 PM</p></div>
+                        <div class="detail-card"><div class="detail-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Venue</h3><p><a href="https://maps.app.goo.gl/87UxvqeqZTwtHR7j9" target="_blank" style="color: #dc2626; text-decoration: none; transition: color 0.3s;">JBCN International School, Oshiwara, Mumbai</a></p></div>
+                    </div>
+                </div>
+                <div class="contact-section">
+                    <h2>Get in <span class="red-text">Touch</span></h2>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+                            <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+                        </div>
+                        <div class="form-group"><label>Message</label><textarea placeholder="Your message"></textarea></div>
+                        <button class="btn large">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="speakers" class="page">
+        <section class="speaker-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content"><h1>Speakers & <span class="red-text">Chief Guest</span></h1><p>Inspiring voices, transformative ideas</p></div>
+        </section>
+        <section class="chief-guest-section">
+            <div class="container">
+                <h2>Our <span class="red-text">Chief Guest</span></h2>
+                <div class="chief-guest-card">
+                    <div class="photo-placeholder"><span>👤</span></div>
+                    <div class="guest-info">
+                        <h3>Prof. Vikram Mehta</h3>
+                        <p class="designation">Distinguished Academic & Author</p>
+                        <p class="bio">Professor Mehta is a renowned educator and thought leader who has inspired millions through his work in transformative learning. With over three decades of experience in higher education, he has authored numerous books on pedagogy and innovation in education.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="speakers-section">
+            <div class="container">
+                <h2>Our <span class="red-text">Speakers</span></h2>
+                <div class="speaker-grid">
+                    <div class="speaker-card">
+                        <div class="photo-placeholder"><span>👤</span></div>
+                        <div class="speaker-info">
+                            <h3>Dr. Priya Sharma</h3>
+                            <p class="field">Technology Innovator</p>
+                            <div class="topic-section"><span class="topic-label">Talk Topic</span><p class="topic">The Future of AI in Education</p></div>
+                            <p class="description">Dr. Sharma is a leading researcher in artificial intelligence with over 15 years of experience in educational technology.</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="photo-placeholder"><span>👤</span></div>
+                        <div class="speaker-info">
+                            <h3>Rajesh Kumar</h3>
+                            <p class="field">Environmental Activist</p>
+                            <div class="topic-section"><span class="topic-label">Talk Topic</span><p class="topic">Sustainable Cities for Tomorrow</p></div>
+                            <p class="description">An award-winning environmentalist who has pioneered urban sustainability initiatives across India.</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="photo-placeholder"><span>👤</span></div>
+                        <div class="speaker-info">
+                            <h3>Ananya Desai</h3>
+                            <p class="field">Social Entrepreneur</p>
+                            <div class="topic-section"><span class="topic-label">Talk Topic</span><p class="topic">Empowering Communities Through Innovation</p></div>
+                            <p class="description">Founder of multiple social enterprises focused on education and healthcare in rural communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info"><h3>TED<span class="red-text">x</span> JBCN International Oshiwara</h3><p>Ideas Worth Spreading</p></div>
+            </div>
+            <div class="footer-bottom"><p>This independent TEDx event is operated under license from TED.</p><p>© 2026 TEDxJBCN International Oshiwara. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(page).classList.add('active');
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            document.querySelector(`.nav-links a[href="#${page}"]`).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        function updateCountdown() {
+            const t = new Date('2026-01-23T09:00:00').getTime() - new Date().getTime();
+            document.getElementById('days').textContent = Math.floor(t / 864e5);
+            document.getElementById('hours').textContent = Math.floor(t % 864e5 / 36e5);
+            document.getElementById('minutes').textContent = Math.floor(t % 36e5 / 6e4);
+            document.getElementById('seconds').textContent = Math.floor(t % 6e4 / 1e3);
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
