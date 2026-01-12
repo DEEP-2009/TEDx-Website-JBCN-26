@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEDxJBCN International Oshiwara</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Helvetica Neue',Arial,sans-serif;background:#000;color:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 1rem}
+.red-text{color:#dc2626}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;width:100%;background:#000;box-shadow:0 2px 10px rgba(220,38,38,.3);z-index:1000}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 1rem;display:flex;justify-content:space-between;align-items:center;height:80px}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-weight:600;transition:.3s}
+.nav-links a:hover,.nav-links a.active{color:#dc2626}
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* HERO */
+.hero,.about-hero,.speaker-hero{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero{height:100vh}
+.about-hero,.speaker-hero{height:50vh;min-height:400px;margin-top:80px}
+.hero-background{position:absolute;inset:0;background:linear-gradient(135deg,rgba(127,29,29,.2),#000)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:1rem}
+.hero-title{font-size:6rem;font-weight:bold}
+.hero-subtitle{font-size:3rem;font-weight:bold}
+.hero-tagline{font-size:1.5rem;color:#d1d5db}
+
+/* COUNTDOWN */
+.countdown-container{
+background:rgba(17,24,39,.6);
+backdrop-filter:blur(10px);
+border:1px solid rgba(220,38,38,.4);
+border-radius:12px;
+padding:2rem;
+margin:2rem auto;
+max-width:700px;
+transition:.3s
+}
+.countdown-container:hover{box-shadow:0 0 35px rgba(220,38,38,.9);transform:scale(1.02)}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.countdown-item{background:#000;border:1px solid #374151;padding:1rem;border-radius:8px}
+.countdown-number{font-size:2.5rem;font-weight:bold;color:#dc2626}
+.countdown-label{font-size:.875rem;color:#9ca3af}
+
+/* BUTTON */
+.btn{padding:1rem 2rem;border:3px solid #dc2626;background:transparent;color:#fff;font-weight:700;border-radius:30px;cursor:pointer;transition:.3s}
+.btn:hover{background:#dc2626;transform:scale(1.05)}
+
+/* CONTENT */
+.section{padding:4rem 0}
+.content-section{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.content-text h2{font-size:2.5rem;margin-bottom:1.5rem}
+.content-text p{color:#d1d5db;margin-bottom:1rem}
+
+/* PLACEHOLDERS */
+.image-placeholder,.photo-placeholder{
+height:300px;
+background:linear-gradient(135deg,#1f2937,#111827);
+border:2px solid rgba(220,38,38,.4);
+border-radius:16px;
+display:flex;align-items:center;justify-content:center;
+font-size:4rem;
+transition:.3s
+}
+.image-placeholder:hover,.photo-placeholder:hover{box-shadow:0 0 30px rgba(220,38,38,.8);transform:scale(1.05)}
+
+/* SPEAKERS */
+.speaker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem}
+.speaker-card{background:#111827;border:1px solid rgba(220,38,38,.3);border-radius:16px;padding:1.5rem;text-align:center;transition:.3s}
+.speaker-card:hover{border-color:#dc2626;transform:translateY(-10px)}
+.speaker-name{font-size:1.25rem;font-weight:bold;margin-top:1rem}
+.speaker-desc{font-size:.9rem;color:#d1d5db;margin-top:.5rem;line-height:1.6}
+
+/* CONTACT */
+.contact-box{
+background:#111827;
+border:1px solid rgba(220,38,38,.4);
+border-radius:16px;
+padding:2.5rem;
+max-width:800px;
+margin:0 auto
+}
+.contact-info p{color:#d1d5db;margin-bottom:.5rem}
+.contact-form{margin-top:2rem}
+.contact-form input,.contact-form textarea{
+width:100%;
+background:#000;
+border:1px solid #374151;
+border-radius:8px;
+padding:.75rem;
+color:#fff;
+margin-bottom:1rem
+}
+.contact-form textarea{resize:none;height:120px}
+
+/* FOOTER */
+.footer{background:#111827;border-top:1px solid #1f2937;padding:2rem 0;text-align:center;margin-top:4rem}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero-title{font-size:3rem}
+.hero-subtitle{font-size:1.5rem}
+.content-section{grid-template-columns:1fr}
+.countdown-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="nav-container">
+<div><strong>TED<span class="red-text">x</span> JBCN Oshiwara</strong></div>
+<div class="nav-links">
+<a href="#home" onclick="showPage('home')" class="active">Home</a>
+<a href="#about" onclick="showPage('about')">About</a>
+<a href="#speakers" onclick="showPage('speakers')">Speakers</a>
+</div>
+</div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<section class="hero">
+<div class="hero-background"></div>
+<div class="hero-content">
+<h1 class="hero-title">TED<span class="red-text">x</span></h1>
+<h2 class="hero-subtitle">JBCN International Oshiwara</h2>
+<p class="hero-tagline">Ideas Worth Spreading</p>
+
+<div class="countdown-container">
+<div class="countdown-grid">
+<div class="countdown-item"><div id="days" class="countdown-number">0</div><div class="countdown-label">Days</div></div>
+<div class="countdown-item"><div id="hours" class="countdown-number">0</div><div class="countdown-label">Hours</div></div>
+<div class="countdown-item"><div id="minutes" class="countdown-number">0</div><div class="countdown-label">Minutes</div></div>
+<div class="countdown-item"><div id="seconds" class="countdown-number">0</div><div class="countdown-label">Seconds</div></div>
+</div>
+</div>
+
+<button class="btn" onclick="showPage('about')">Learn More</button>
+</div>
+</section>
+
+<section class="section container">
+<h2 style="text-align:center;margin-bottom:2rem">Contact <span class="red-text">Us</span></h2>
+<div class="contact-box">
+<div class="contact-info">
+<p><strong>Address:</strong> JBCN International School, Oshiwara, Mumbai</p>
+<p><strong>Phone:</strong> +91 98765 43210</p>
+<p><strong>Email:</strong> tedxjbcn.oshiwara@gmail.com</p>
+</div>
+
+<div class="contact-form">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+<section class="about-hero">
+<div class="hero-background"></div>
+<div class="hero-content">
+<h1>About <span class="red-text">Us</span></h1>
+<p>Ideas Worth Spreading</p>
+</div>
+</section>
+
+<section class="section container">
+<div class="content-section">
+<div class="content-text">
+<h2>What is TED<span class="red-text">x</span>?</h2>
+<p>TEDx is a global movement of independently organized events that bring people together to share powerful ideas.</p>
+<p>TEDxJBCN International Oshiwara aims to ignite curiosity, spark dialogue, and inspire meaningful change.</p>
+</div>
+<div class="image-placeholder">📸</div>
+</div>
+
+<div class="countdown-container">
+<div class="countdown-grid">
+<div class="countdown-item"><div id="days2" class="countdown-number"></div><div class="countdown-label">Days</div></div>
+<div class="countdown-item"><div id="hours2" class="countdown-number"></div><div class="countdown-label">Hours</div></div>
+<div class="countdown-item"><div id="minutes2" class="countdown-number"></div><div class="countdown-label">Minutes</div></div>
+<div class="countdown-item"><div id="seconds2" class="countdown-number"></div><div class="countdown-label">Seconds</div></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- SPEAKERS -->
+<div id="speakers" class="page">
+<section class="speaker-hero">
+<div class="hero-background"></div>
+<div class="hero-content">
+<h1>Speakers & <span class="red-text">Chief Guest</span></h1>
+</div>
+</section>
+
+<section class="section container">
+<h2 style="text-align:center;margin-bottom:3rem">Chief Guest</h2>
+<div class="speaker-card">
+<div class="photo-placeholder">👤</div>
+<div class="speaker-name">Chief Guest Name</div>
+<div class="speaker-desc">A brief description of the chief guest and their background.</div>
+</div>
+</section>
+
+<section class="section container">
+<h2 style="text-align:center;margin-bottom:3rem">Speakers</h2>
+<div class="speaker-grid">
+<div class="speaker-card">
+<div class="photo-placeholder">👤</div>
+<div class="speaker-name">Speaker One</div>
+<div class="speaker-desc">Short description of the speaker and their talk.</div>
+</div>
+<div class="speaker-card">
+<div class="photo-placeholder">👤</div>
+<div class="speaker-name">Speaker Two</div>
+<div class="speaker-desc">Short description of the speaker and their talk.</div>
+</div>
+<div class="speaker-card">
+<div class="photo-placeholder">👤</div>
+<div class="speaker-name">Speaker Three</div>
+<div class="speaker-desc">Short description of the speaker and their talk.</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="footer">
+<p>© 2026 TEDxJBCN International Oshiwara</p>
+</footer>
+
+<script>
+function showPage(page){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(page).classList.add('active');
+document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+document.querySelector(`a[href="#${page}"]`).classList.add('active');
+window.scrollTo(0,0);
+}
+
+function updateCountdown(){
+const eventTime=new Date('2026-01-23T09:00:00').getTime();
+const now=Date.now();
+const d=Math.max(0,eventTime-now);
+const vals=[
+Math.floor(d/86400000),
+Math.floor(d%86400000/3600000),
+Math.floor(d%3600000/60000),
+Math.floor(d%60000/1000)
+];
+['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=vals[i]);
+['days2','hours2','minutes2','seconds2'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=vals[i]});
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
