@@ -57,7 +57,13 @@ nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:
 .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(230,43,30,0.1),transparent 70%);opacity:0;transition:opacity 0.3s}
 .card:hover{transform:translateY(-10px);border-color:#e62b1e;box-shadow:0 20px 40px rgba(230,43,30,0.2)}
 .card:hover::before{opacity:1}
-.card-image{width:150px;height:150px;border-radius:50%;background:#1f2937;border:3px solid #e62b1e;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#e62b1e;position:relative;z-index:1}
+.card-image{width:120px;height:120px;border-radius:50%;background:#1f2937;border:3px solid #e62b1e;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#e62b1e;position:relative;z-index:1;}
+.card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
 .card h3{font-size:1.5rem;margin-bottom:0.5rem;position:relative;z-index:1}
 .card p{color:#9ca3af;font-size:0.95rem;position:relative;z-index:1}
 
@@ -166,56 +172,44 @@ Every idea begins as a quiet ripple, a thought, a question, a spark. It moves ge
 <div id="speakers" class="page">
 <section class="section container">
 
-<h2 style="text-align:center">Chief Guest</h2>
+<h2 style="text-align:center"> Our External Speaker</h2>
 <p style="text-align:center;color:#9ca3af;margin-bottom:3rem">
-Honouring our distinguished guest
+Honouring our distinguished speaker
 </p>
 
-<div class="speakers" style="max-width:400px;margin:0 auto 5rem auto">
+<div class="speakers">
   <div class="card">
-    <div class="card-image">CG</div>
-    <h3>Chief Guest Name</h3>
-    <p>Title / Designation</p>
+    <div class="card-image"><img src="./images/captamanjohri.png"></div>
+    <h3>Captain Aman Johri</h3>
     <p style="margin-top:1rem;font-size:0.85rem">
-      Brief description of the chief guest, highlighting their achievements and relevance to the event.
+      Captain Aman Johri, the Founder and CEO of an Aerospace and Defence firm based in Mumbai, works on developing next-generation unmanned technologies for the Indian Armed Forces. An astronautics engineer and rescue helicopter pilot, Captain Aman also serves with the Government of India on matters of aerospace defence and national security. Currently training as an analog astronaut, he is on track to become one of the youngest Indians to go to space. Beyond the cockpit and the lab, he is a renowned TEDx speaker, a trained hostage rescue and tactical crisis negotiator, and the youngest lifetime member of the Rotary Wing Society of India. His work has been recognized with multiple national and international honours, and he has represented India at global forums including the United Nations Headquarters in New York.
     </p>
   </div>
 </div>
 
-<h2 style="text-align:center">Our Speakers</h2>
+<h2 style="text-align:center">Our Internal Speakers</h2>
 <p style="text-align:center;color:#9ca3af;margin-bottom:3rem">
 Meet the voices behind the ideas
 </p>
 
 <div class="speakers">
   <div class="card">
-    <div class="card-image">S1</div>
-    <h3>Speaker Name 1</h3>
-    <p>Topic: Innovation & Technology</p>
+    <div class="card-image"><img src="./images/siawalia.png"></div>
+    <h3>Sia Walia</h3>
+    <p>Topic: Ripple to Waves</p>
     <p style="margin-top:1rem;font-size:0.85rem">
-      Brief description of speaker background and expertise.
+      Siya leads with resilience, creativity, and determination, Sia invites her audience to confront and embrace the parts of themselves they often shy away from. Rooted in a deep love for the performing arts, she has played significant roles in short films and stage productions, and continues to explore self-expression through poetry and visual storytelling.
     </p>
   </div>
 
   <div class="card">
-    <div class="card-image">S2</div>
-    <h3>Speaker Name 2</h3>
-    <p>Topic: Education & Learning</p>
+    <div class="card-image"><img src="./images/radhikabanrji.jpeg"></div>
+    <h3>Radhika Banerji</h3>
+    <p>Topic: Ripples to Waves</p>
     <p style="margin-top:1rem;font-size:0.85rem">
-      Brief description of speaker background and expertise.
+      Curious, disciplined, and reflective, Radhika brings thoughtfulness and clarity to her talks at TEDx JBCN Oshiwara, inspiring audiences to believe that meaningful change is achievable through small, consistent actions. Beyond TEDx, she is actively involved in public speaking and podcasting, has helped build a student-led podcast club from the ground up, and is a competitive swimmer.
     </p>
   </div>
-
-  <div class="card">
-    <div class="card-image">S3</div>
-    <h3>Speaker Name 3</h3>
-    <p>Topic: Sustainability</p>
-    <p style="margin-top:1rem;font-size:0.85rem">
-      Brief description of speaker background and expertise.
-    </p>
-  </div>
-</div>
-
 </section>
 </div>
 
@@ -258,9 +252,7 @@ Thank you! Your message has been received. We'll get back to you soon.
 <p><strong>TED<span class="red">x</span>JBCN International Oshiwara</strong></p>
 <p class="footer-license">This independent TEDx event is operated under license from TED.</p>
 <div class="footer-social">
-<a href="#" target="_blank">Instagram</a>
-<a href="#" target="_blank">Twitter</a>
-<a href="#" target="_blank">Facebook</a>
+<a href="https://www.instagram.com/tedxjbcnoshiwara?igsh=MWI4cG53OGVpZmY2eQ==" target="_blank" rel="noopener">Instagram</a>
 </div>
 <p style="margin-top:2rem;font-size:0.85rem;color:#6b7280">
 © 2024 TEDxJBCN International Oshiwara. All rights reserved.
