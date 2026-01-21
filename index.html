@@ -339,9 +339,9 @@ function showPage(pageId) {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-
+// COUNTDOWN TIMER
 function updateCountdown() {
-  const eventDate = new Date('2026-01-23T09:00:00').getTime();
+  const eventDate = new Date('2026-01-23T14:30:00').getTime(); // ✅ 2:30 PM
   const now = new Date().getTime();
   const distance = eventDate - now;
 
@@ -366,8 +366,6 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-
 
 function handleSubmit(event) {
   event.preventDefault();
