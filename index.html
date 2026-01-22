@@ -12,20 +12,21 @@ a{text-decoration:none;color:inherit}
 .red{color:#e62b1e}
 .container{max-width:1200px;margin:auto;padding:0 1rem}
 
-
+/* NAVBAR */
 nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(230,43,30,.3);z-index:1000;transition:all 0.3s}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;height:80px}
 .nav-brand{font-size:1.2rem;font-weight:700}
 .nav-links{display:flex;gap:2rem}
-.nav-links a{font-weight:600;transition:color 0.3s;position:relative;cursor:pointer}
+.nav-links a{font-weight:600;transition:color 0.3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:#e62b1e;transition:width 0.3s}
 .nav-links a.active,.nav-links a:hover{color:#e62b1e}
 .nav-links a.active::after,.nav-links a:hover::after{width:100%}
 
+/* PAGE SYSTEM */
 .page{display:none;min-height:100vh;padding-top:80px}
 .page.active{display:block}
 
-
+/* HERO */
 .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(135deg,rgba(20,0,0,0.9),#000)}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(230,43,30,0.1),transparent 70%);pointer-events:none}
 .hero-content{position:relative;z-index:1;animation:fadeInUp 1s ease-out}
@@ -33,24 +34,24 @@ nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:
 .hero h2{font-size:2.5rem;font-weight:300;margin-bottom:1rem}
 .hero p{font-size:1.2rem;color:#d1d5db;margin-bottom:2rem}
 
-
+/* BUTTON */
 .btn{display:inline-block;margin-top:1rem;padding:1rem 2.5rem;border:2px solid #e62b1e;background:transparent;color:#fff;font-weight:700;border-radius:50px;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:1px}
 .btn:hover{background:#e62b1e;transform:translateY(-2px);box-shadow:0 10px 30px rgba(230,43,30,0.3)}
 
-
+/* SECTIONS */
 .section{padding:6rem 0}
 .section h2{font-size:2.5rem;margin-bottom:2rem;color:#e62b1e}
 .section h3{font-size:1.8rem;margin-top:2rem;margin-bottom:1rem}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 
-
+/* COUNTDOWN */
 .countdown{margin:3rem auto;max-width:700px;background:rgba(230,43,30,0.1);border:2px solid rgba(230,43,30,.3);border-radius:20px;padding:2rem;backdrop-filter:blur(10px)}
 .countdown-title{font-size:1.2rem;margin-bottom:1.5rem;text-align:center;text-transform:uppercase;letter-spacing:2px}
 .countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
 .countdown-item span{display:block;font-size:3rem;font-weight:700;color:#e62b1e;margin-bottom:0.5rem}
 .countdown-item label{font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;color:#9ca3af}
 
-
+/* SPEAKERS */
 .speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
 .card{background:linear-gradient(135deg,rgba(20,0,0,0.6),rgba(30,30,30,0.8));border:1px solid rgba(230,43,30,.2);border-radius:20px;padding:2rem;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(230,43,30,0.1),transparent 70%);opacity:0;transition:opacity 0.3s}
@@ -66,19 +67,11 @@ nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:
 .card h3{font-size:1.5rem;margin-bottom:0.5rem;position:relative;z-index:1}
 .card p{color:#9ca3af;font-size:0.95rem;position:relative;z-index:1}
 
-
+/* ABOUT TEXT */
 .about-text{max-width:900px;margin:auto}
 .about-text p{margin-bottom:1.5rem;font-size:1.1rem;line-height:1.8;color:#d1d5db}
 
-
-.event-details-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;margin-top:2rem;max-width:1600px;padding:0 1rem;margin-left:0;margin-right:auto}
-.event-detail-card{background:linear-gradient(135deg,rgba(15,23,42,0.8),rgba(30,41,59,0.9));border:2px solid rgba(230,43,30,.3);border-radius:20px;padding:3rem 2.5rem;text-align:center;transition:all 0.3s;cursor:pointer}
-.event-detail-card:hover{transform:translateY(-5px);border-color:#e62b1e;box-shadow:0 20px 40px rgba(230,43,30,0.3)}
-.event-icon{width:80px;height:80px;border-radius:50%;background:#e62b1e;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;color:#fff}
-.event-detail-card h3{font-size:1.5rem;margin-bottom:1rem;color:#fff}
-.event-detail-card p{font-size:1.1rem;color:#d1d5db;margin:0}
-
-
+/* CONTACT */
 .contact-box{max-width:700px;margin:auto;background:linear-gradient(135deg,rgba(20,0,0,0.6),rgba(30,30,30,0.8));padding:3rem;border-radius:20px;border:1px solid rgba(230,43,30,.3)}
 .contact-box h3{margin-bottom:2rem;color:#e62b1e}
 .form-group{margin-bottom:1.5rem}
@@ -89,17 +82,17 @@ nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.95);backdrop-filter:
 .privacy-note{font-size:0.85rem;color:#9ca3af;margin-top:1rem;font-style:italic}
 .success-message{display:none;background:rgba(34,197,94,0.1);border:1px solid #22c55e;color:#22c55e;padding:1rem;border-radius:10px;margin-top:1rem}
 
-
+/* FOOTER */
 footer{background:rgba(17,24,39,0.8);text-align:center;padding:3rem 1rem;border-top:1px solid rgba(230,43,30,.2);margin-top:6rem}
 .footer-license{font-size:0.9rem;color:#9ca3af;margin-top:1rem;font-style:italic}
 .footer-social{margin-top:1.5rem}
 .footer-social a{display:inline-block;margin:0 1rem;color:#e62b1e;font-weight:600;transition:color 0.3s}
 .footer-social a:hover{color:#fff}
 
-
+/* ANIMATIONS */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-
+/* RESPONSIVE */
 @media(max-width:768px){
 .hero h1{font-size:3.5rem}
 .hero h2{font-size:1.8rem}
@@ -108,10 +101,6 @@ footer{background:rgba(17,24,39,0.8);text-align:center;padding:3rem 1rem;border-
 .countdown-item span{font-size:2rem}
 .nav-links{gap:1rem;font-size:0.9rem}
 .section{padding:4rem 0}
-.event-details-grid{grid-template-columns:1fr;gap:1.5rem}
-}
-@media(max-width:1024px) and (min-width:769px){
-.event-details-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -122,15 +111,15 @@ footer{background:rgba(17,24,39,0.8);text-align:center;padding:3rem 1rem;border-
 <div class="container nav-inner">
 <div class="nav-brand">TED<span class="red">x</span>JBCN International Oshiwara</div>
 <div class="nav-links">
-<a onclick="showPage('home')" class="active">Home</a>
-<a onclick="showPage('about')">About</a>
-<a onclick="showPage('speakers')">Speakers</a>
-<a onclick="showPage('contact')">Contact</a>
+<a href="#home" onclick="showPage('home')" class="active">Home</a>
+<a href="#about" onclick="showPage('about')">About</a>
+<a href="#speakers" onclick="showPage('speakers')">Speakers and Chief Guest</a>
+<a href="#contact" onclick="showPage('contact')">Contact</a>
 </div>
 </div>
 </nav>
 
-
+<!-- HOME -->
 <div id="home" class="page active">
 <section class="hero">
 <div class="hero-content">
@@ -153,7 +142,7 @@ footer{background:rgba(17,24,39,0.8);text-align:center;padding:3rem 1rem;border-
 </section>
 </div>
 
-
+<!-- ABOUT -->
 <div id="about" class="page">
 <section class="section container">
 <div class="about-text">
@@ -175,63 +164,32 @@ The annual TED Conference takes place each spring in Vancouver, British Columbia
 <p>
 Every idea begins as a quiet ripple, a thought, a question, a spark. It moves gently at first, touching one mind, one heart. But ripples gather, connect, and grow, building momentum until they become waves - waves that inspire, transform, and carry change far beyond where they began. This year at TEDx JBCN Intl Oshiwara, we celebrate the power of small beginnings, reminding us that even the tiniest ripple has the potential to shape the world.
 </p>
-
-<h2 style="text-align:center;margin-top:4rem;margin-bottom:3rem">Event <span class="red">Details</span></h2>
-<div class="event-details-grid">
-<div class="event-detail-card">
-<div class="event-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-<line x1="16" y1="2" x2="16" y2="6"></line>
-<line x1="8" y1="2" x2="8" y2="6"></line>
-<line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-</div>
-<h3>Date</h3>
-<p>January 23, 2026</p>
-</div>
-
-<div class="event-detail-card">
-<div class="event-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<circle cx="12" cy="12" r="10"></circle>
-<polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-</div>
-<h3>Time</h3>
-<p>2:30-4:00 pm</p>
-</div>
-
-<a href="https://maps.app.goo.gl/jRsyj5LUcpA5KqWZ9" target="_blank" rel="noopener" class="event-detail-card" style="text-decoration:none;color:inherit">
-<div class="event-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-<circle cx="12" cy="10" r="3"></circle>
-</svg>
-</div>
-<h3>Venue</h3>
-<p><span class="red">JBCN International School, Oshiwara, Mumbai</span></p>
-</a>
-
-<a href="https://www.instagram.com/tedxjbcnoshiwara/" target="_blank" rel="noopener" class="event-detail-card" style="text-decoration:none;color:inherit">
-<div class="event-icon">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-</svg>
-</div>
-<h3>Social</h3>
-<p><span class="red">Follow us on Instagram</span></p>
-</a>
-</div>
 </div>
 </section>
 </div>
 
-
+<!-- SPEAKERS -->
 <div id="speakers" class="page">
 <section class="section container">
+
+<h2 style="text-align:center">Our Chief Guest</h2>
+<p style="text-align:center;color:#9ca3af;margin-bottom:3rem">
+Gracing the event with distinction
+</p>
+
+<div class="speakers">
+  <div class="card">
+    <div class="card-image">
+      <img src="./images/varunduggaria.png" alt="Chief Guest">
+    </div>
+    <h3>Varun Duggaria</h3>
+    <p style="color:#e62b1e;font-weight:600">Chief Guest</p>
+    <p style="margin-top:1rem;font-size:0.85rem">
+      He is a second-time creative entrepreneur and lifelong creator. He co-founded The Glitch, scaled it through a major shift in digital media, and exited after its acquisition by WPP. Today, he is building Emomee, an IP-first kids media company focused on character-led storytelling, guided by the belief that meaningful media is built for repetition, trust, and longevity—not virality. His work centers on taste, clarity, and how ideas compound through restraint and point of view.
+    </p>
+  </div>
+</div>
+
 
 <h2 style="text-align:center"> Our External Speaker</h2>
 <p style="text-align:center;color:#9ca3af;margin-bottom:3rem">
@@ -240,7 +198,7 @@ Honouring our distinguished speaker
 
 <div class="speakers">
   <div class="card">
-    <div class="card-image"><img src="./images/captamanjohri.png" alt="Captain Aman Johri"></div>
+    <div class="card-image"><img src="./images/captamanjohri.png"></div>
     <h3>Captain Aman Johri</h3>
     <p style="margin-top:1rem;font-size:0.85rem">
       Captain Aman Johri, the Founder and CEO of an Aerospace and Defence firm based in Mumbai, works on developing next-generation unmanned technologies for the Indian Armed Forces. An astronautics engineer and rescue helicopter pilot, Captain Aman also serves with the Government of India on matters of aerospace defence and national security. Currently training as an analog astronaut, he is on track to become one of the youngest Indians to go to space. Beyond the cockpit and the lab, he is a renowned TEDx speaker, a trained hostage rescue and tactical crisis negotiator, and the youngest lifetime member of the Rotary Wing Society of India. His work has been recognized with multiple national and international honours, and he has represented India at global forums including the United Nations Headquarters in New York.
@@ -248,14 +206,14 @@ Honouring our distinguished speaker
   </div>
 </div>
 
-<h2 style="text-align:center;margin-top:4rem">Our Internal Speakers</h2>
+<h2 style="text-align:center">Our Internal Speakers</h2>
 <p style="text-align:center;color:#9ca3af;margin-bottom:3rem">
 Meet the voices behind the ideas
 </p>
 
 <div class="speakers">
   <div class="card">
-    <div class="card-image"><img src="./images/siawalia.png" alt="Sia Walia"></div>
+    <div class="card-image"><img src="./images/siawalia.png"></div>
     <h3>Sia Walia</h3>
     <p>Topic: Ripple to Waves</p>
     <p style="margin-top:1rem;font-size:0.85rem">
@@ -264,23 +222,22 @@ Meet the voices behind the ideas
   </div>
 
   <div class="card">
-    <div class="card-image"><img src="./images/radhikabanrji.jpeg" alt="Radhika Banerji"></div>
+    <div class="card-image"><img src="./images/radhikabanrji.jpeg"></div>
     <h3>Radhika Banerji</h3>
     <p>Topic: Ripples to Waves</p>
     <p style="margin-top:1rem;font-size:0.85rem">
       Curious, disciplined, and reflective, Radhika brings thoughtfulness and clarity to her talks at TEDx JBCN Oshiwara, inspiring audiences to believe that meaningful change is achievable through small, consistent actions. Beyond TEDx, she is actively involved in public speaking and podcasting, has helped build a student-led podcast club from the ground up, and is a competitive swimmer.
     </p>
   </div>
-</div>
 </section>
 </div>
 
-
+<!-- CONTACT -->
 <div id="contact" class="page">
 <section class="section container">
 <div class="contact-box">
 <h2 style="text-align:center;margin-bottom:2rem">Get In Touch</h2>
-<form id="contactForm" onsubmit="return handleSubmit(event)">
+<form id="contactForm" onsubmit="handleSubmit(event)">
 <div class="form-group">
 <label for="name">Name *</label>
 <input type="text" id="name" name="name" required placeholder="Your full name">
@@ -323,18 +280,13 @@ Thank you! Your message has been received. We'll get back to you soon.
 </footer>
 
 <script>
-
+// PAGE NAVIGATION
 function showPage(pageId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   
   document.getElementById(pageId).classList.add('active');
-  
-  const links = document.querySelectorAll('.nav-links a');
-  if (pageId === 'home') links[0].classList.add('active');
-  if (pageId === 'about') links[1].classList.add('active');
-  if (pageId === 'speakers') links[2].classList.add('active');
-  if (pageId === 'contact') links[3].classList.add('active');
+  document.querySelector(`a[href="#${pageId}"]`).classList.add('active');
   
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
@@ -367,19 +319,21 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
+
+// FORM HANDLING
 function handleSubmit(event) {
   event.preventDefault();
   
   const form = document.getElementById('contactForm');
   const successMessage = document.getElementById('successMessage');
   
-
+  // Show success message
   successMessage.style.display = 'block';
   
-  
+  // Reset form
   form.reset();
   
-  
+  // Hide success message after 5 seconds
   setTimeout(() => {
     successMessage.style.display = 'none';
   }, 5000);
@@ -387,7 +341,7 @@ function handleSubmit(event) {
   return false;
 }
 
-
+// SMOOTH SCROLL FOR NAVBAR
 window.addEventListener('scroll', function() {
   const nav = document.querySelector('nav');
   if (window.scrollY > 50) {
